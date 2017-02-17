@@ -9,6 +9,10 @@ module GRPC
           @@workers << klass
         end
 
+        def self.list
+          @@workers rescue []
+        end
+
         def call
           raise NotImplemented.new
         end

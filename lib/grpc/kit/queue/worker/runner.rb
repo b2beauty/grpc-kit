@@ -15,7 +15,7 @@ module GRPC
 
           def run!
             if worker.nil?
-              GRPC.logger.error("class #{worker} does not exist")
+              GRPC.logger.error("class #{@worker_class} does not exist")
               exit
             end
 
