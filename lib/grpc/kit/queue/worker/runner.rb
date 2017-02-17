@@ -27,7 +27,9 @@ module GRPC
           private
 
           def worker
-            Object.const_get(@worker_class) rescue nil
+            Object.const_get(@worker_class)
+          rescue NameError
+            nil
           end
 
           def subscription

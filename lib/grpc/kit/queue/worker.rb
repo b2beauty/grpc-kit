@@ -10,7 +10,9 @@ module GRPC
         end
 
         def self.list
-          @@workers rescue []
+          @@workers
+        rescue NameError
+          []
         end
 
         def call
