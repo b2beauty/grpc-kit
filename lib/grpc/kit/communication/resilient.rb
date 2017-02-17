@@ -9,7 +9,7 @@ module GRPC
           GRPC::BadStatus,
           Google::Cloud::UnavailableError,
           Google::Cloud::InternalError
-        ]
+        ].freeze
 
         def resilient(limit: 16)
           tries ||= 0
