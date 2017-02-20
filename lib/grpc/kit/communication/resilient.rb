@@ -21,12 +21,11 @@ module GRPC
         rescue *ERRORS => e
           tries += 1
           exponential_backoff(tries, limit: limit) && retry
-          throw e
+          raise
         end
 
         # See: https://en.wikipedia.org/wiki/Exponential_backoff
         def exponential_backoff(tries, limit:)
-          print '.'
           # Retry few times before going exponential
           return true if tries <= 3
 
