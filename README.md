@@ -27,7 +27,7 @@ Or install it yourself as:
 
 ### GRPC::Kit::Communication::Resilient
 
-Sometimes, GRPC and Google::Cloud raises _unavailable error_, but you can retry and all works fine. Based on [Datastore documentation](https://cloud.google.com/appengine/articles/handling_datastore_errors#timeouts-due-to-datastore-issues) we implemented a _helper_ to _resilient communication_.
+Sometimes, GRPC and Google::Cloud raises _unavailable error_, but you can retry and all works fine. Based on [Datastore documentation](https://cloud.google.com/appengine/articles/handling_datastore_errors#timeouts-due-to-datastore-issues) we implemented a _helper_ for _resilient communication_.
 
 Example:
 
@@ -46,11 +46,11 @@ topic = resilient(limit: 5) { topic.publish('message') }
 
 ### GRPC::Kit::Logger
 
-By default all logs sent to `GRPC.logger` are ignored. But `GRPC::Kit::Logger` configure automatically logs to use _STDOUT_.
+By default all logs sent to `GRPC.logger` are ignored. But `GRPC::Kit::Logger` automatically configures logs to use _STDOUT_.
 
 ### GRPC::Kit::Queue::Publisher
 
-To publish a message to topic (creating if not exists) you need only configure environment variables for `Google::Cloud::Pubsub` and use:
+To publish a message to topic (creating one if none exists) you only need to configure environment variables for `Google::Cloud::Pubsub` and use:
 
 ```ruby
 GRPC::Kit::Queue::Publisher.publish('topic_name', 'message')
@@ -58,7 +58,7 @@ GRPC::Kit::Queue::Publisher.publish('topic_name', 'message')
 
 ### GRPC::Kit::Queue::Worker
 
-Create a class in `lib/workers` and including `GRPC::Kit::Queue::Worker`:
+Create a class in `lib/workers` including `GRPC::Kit::Queue::Worker`:
 
 ```ruby
 # lib/workers/my_worker.rb
