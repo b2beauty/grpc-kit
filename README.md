@@ -50,6 +50,12 @@ By default all logs sent to `GRPC.logger` are ignored. But `GRPC::Kit::Logger` c
 
 ### GRPC::Kit::Queue::Publisher
 
+To publish a message to topic (creating if not exists) you need only configure environment variables for `Google::Cloud::Pubsub` and use:
+
+```ruby
+GRPC::Kit::Queue::Publisher.publish('topic_name', 'message')
+```
+
 ### GRPC::Kit::Queue::Worker
 
 ## Development
