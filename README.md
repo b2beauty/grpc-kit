@@ -46,6 +46,8 @@ topic = resilient(limit: 5) { topic.publish('message') }
 
 ### GRPC::Kit::Logger
 
+By default all logs sent to `GRPC.logger` are ignored. But `GRPC::Kit::Logger` configure automatically logs to use _STDOUT_.
+
 ### GRPC::Kit::Queue::Publisher
 
 ### GRPC::Kit::Queue::Worker
