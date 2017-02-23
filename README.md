@@ -58,6 +58,33 @@ GRPC::Kit::Queue::Publisher.publish('topic_name', 'message')
 
 ### GRPC::Kit::Queue::Worker
 
+Create a class in `lib/workers` and including `GRPC::Kit::Queue::Worker`:
+
+```ruby
+# lib/workers/my_worker.rb
+class MyWorker
+  include GRPC::Kit::Queue::Worker
+
+  def initialize(msg)
+    @msg = msg
+  end
+
+  def call
+    puts @msg.data
+    @msg.ack!
+  end
+end
+```
+
+And you can use:
+
+```bash
+# to list available workers
+grpc-kit workers list
+# to run a worker
+grpc-kit workers runner MyWorker topic_name
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
